@@ -1,0 +1,33 @@
+{
+  "name": "block-collection",
+  "version": "1.0.0",
+  "description": "I made some blocks",
+  "main": "index.js",
+  "scripts": {
+    "watch": "npx webpack --watch",
+    "prepare": "NODE_ENV=production npx webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/stephencottontail/steves-blocks.git"
+  },
+  "keywords": [
+    "wp",
+    "gutenberg"
+  ],
+  "author": "Stephen Dickinson <stephencottontail@me.com>",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/stephencottontail/steves-blocks/issues"
+  },
+  "homepage": "https://github.com/stephencottontail/steves-blocks#readme",
+  "dependencies": {
+    "@wordpress/babel-preset-default": "^4.19.0",
+    "@wordpress/dependency-extraction-webpack-plugin": "^2.8.0",
+    "babel-cli": "^6.18.0",
+    "babel-loader": "^8.2.2",
+    "core-js": "^3.8.1",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^4.2.0"
+  }
+}
