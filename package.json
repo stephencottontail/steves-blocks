@@ -4,8 +4,9 @@
   "description": "I made some blocks",
   "main": "index.js",
   "scripts": {
-    "watch": "npx webpack --watch",
-    "prepare": "NODE_ENV=production npx webpack"
+    "scripts:watch": "npx webpack --watch",
+    "prepare": "NODE_ENV=production npx webpack",
+    "styles:watch": "npx gulp watch"
   },
   "repository": {
     "type": "git",
@@ -24,9 +25,14 @@
   "dependencies": {
     "@wordpress/babel-preset-default": "^4.19.0",
     "@wordpress/dependency-extraction-webpack-plugin": "^2.8.0",
+    "autoprefixer": "^10.1.0",
     "babel-cli": "^6.18.0",
     "babel-loader": "^8.2.2",
     "core-js": "^3.8.1",
+    "gulp": "^4.0.2",
+    "gulp-postcss": "^9.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.1.0",
     "webpack": "^4.44.2",
     "webpack-cli": "^4.2.0"
   }
