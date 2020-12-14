@@ -32,5 +32,5 @@ function Spoiler( { isRevealed, setState, className } ) {
 }
 
 export default withState( {
-	isRevealed: false
+	isRevealed: true
 } )( Spoiler );
