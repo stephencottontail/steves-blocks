@@ -1,6 +1,9 @@
 @import "../scss/variables";
 
 .wp-block-scbc-spoiler {
+	padding-top: 45px;
+	padding-bottom: 45px;
+
 	&__toggle {
 		display: flex;
 		align-items: center;
