@@ -17,8 +17,8 @@
   position: absolute;
   top: 0;
   right: 0;
-  height: auto;
-  width: auto;
+  height: 45px;
+  width: 130px;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -26,7 +26,8 @@
   border: 0;
   margin: 0;
   padding: 12px;
-  z-index: 10; }
+  z-index: 10;
+  transition: height 200ms ease, width 200ms ease; }
   .wp-block-scbc-spoiler__toggle.is-revealed {
     height: 100%;
     width: 100%; }
