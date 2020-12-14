@@ -4,9 +4,9 @@
   "description": "I made some blocks",
   "main": "index.js",
   "scripts": {
-    "scripts:watch": "npx webpack --watch",
-    "prepare": "NODE_ENV=production npx webpack",
-    "styles:watch": "npx gulp watch"
+    "scripts": "npx webpack --watch",
+    "styles": "npx gulp watch",
+    "prepare": "NODE_ENV=production npx webpack"
   },
   "repository": {
     "type": "git",
