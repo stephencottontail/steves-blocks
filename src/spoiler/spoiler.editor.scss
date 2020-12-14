@@ -1,4 +1,13 @@
-.wp-block-scbc-spoiler {}
+@import "../scss/variables";
+@import "common";
 
+.wp-block-scbc-spoiler {
+	@extend %shared;
 
+	position: relative;
+	border: 2px dashed $background-color;
 
+	.is-selected {
+		background-color: map-get( $colors, gray-200 );
+	}
+}

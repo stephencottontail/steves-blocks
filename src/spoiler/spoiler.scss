@@ -1,1 +1,8 @@
-.wp-block-scbc-spoiler {}
+@import "../scss/variables";
+@import "common";
+
+.wp-block-scbc-spoiler {
+	@extend %shared;
+
+	position: relative;
+}

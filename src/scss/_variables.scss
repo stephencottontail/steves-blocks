@@ -1,0 +1,33 @@
+$colors: (
+	"blue-100": #D8F3F9,
+	"blue-200": #AAE2F1,
+	"blue-300": #55BCD7,
+	"blue-base": #2691B5,
+	"blue-500": #095576,
+	"blue-600": #003E5B,
+	"gray-100": #F2F8FA,
+	"gray-200": #D4DEE2,
+	"gray-300": #7C8385,
+	"gray-400": #4A4E4F,
+	"gray-500": #171919,
+	"green-100": #9BFCDD,
+	"green-200": #3CE3B5,
+	"green-base": #1FC291,
+	"green-400": #0B9A6F,
+	"green-500": #036245
+);
+
+$base-font-size: 16px;
+$base-line-height: 1.5;
+$base-spacing: $base-font-size * $base-line-height;
+
+$background-color: map-get( $colors, gray-100 );
+$text-color: map-get( $colors, gray-500 );
+
+// shared settings for all blocks
+%shared {
+	box-sizing: border-box;
+	background-color: $background-color;
+	color: $text-color;
+	padding: ( $base-spacing / 2 );
+}

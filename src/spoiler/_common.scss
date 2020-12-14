@@ -1,0 +1,33 @@
+@import "../scss/variables";
+
+.wp-block-scbc-spoiler {
+	&__toggle {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		top: 0;
+		right: 0;
+		height: auto;
+		width: auto;
+		appearance: none;
+		background-color: map-get( $colors, gray-200 );
+		border: 0;
+		margin: 0;
+		padding: ( $base-spacing / 2 );
+		z-index: 10;
+
+		&.is-expanded {
+			height: 100%;
+			width: 100%;
+		}
+	}
+
+	&__toggle-text {
+		font-size: 0.8em;
+		font-weight: bold;
+		margin-left: 4px;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+	}
+}
