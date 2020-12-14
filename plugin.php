@@ -34,6 +34,10 @@
 		}
 	} );
 
+	add_action( 'wp_enqueue_scripts', function() {
+		wp_enqueue_script( 'scbc-spoiler-functionality', plugins_url( '/utils/scbc-spoiler-functionality.js', __FILE__ ), null, null, true );
+	} );
+
 	add_filter( 'block_categories', function( $categories, $post ) {
 		return array_merge( $categories, array(
 			array(

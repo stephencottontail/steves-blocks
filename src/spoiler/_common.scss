@@ -17,7 +17,7 @@
 		padding: ( $base-spacing / 2 );
 		z-index: 10;
 
-		&.is-expanded {
+		&.is-revealed {
 			height: 100%;
 			width: 100%;
 		}

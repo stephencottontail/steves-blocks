@@ -27,7 +27,7 @@
   margin: 0;
   padding: 12px;
   z-index: 10; }
-  .wp-block-scbc-spoiler__toggle.is-expanded {
+  .wp-block-scbc-spoiler__toggle.is-revealed {
     height: 100%;
     width: 100%; }
 

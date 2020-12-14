@@ -1,7 +1,10 @@
-export default function SpoilerButton( { stem } ) {
+export default function SpoilerButton( { stem, ...rest } ) {
+	const { onClick, isRevealed } = rest;
+
 	return (
 		<button
-			className={ `${stem}__toggle` }
+			className={ `${stem}__toggle ${ isRevealed ? 'is-revealed' : '' }` }
+			onClick={ onClick }
 		>
 			<i
 				className={ `dashicons dashicons-hidden` }
