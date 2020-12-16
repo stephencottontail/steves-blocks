@@ -12,8 +12,7 @@ export default function Save() {
 			<div
 				className={ `${className}__wrapper` }
 				aria-live='polite'
-				aria-hidden={ false }
-				hidden={ false }
+				aria-hidden={ true }
 			>
 				<InnerBlocks.Content />
 			</div>

@@ -5,7 +5,7 @@ import SpoilerButton from './SpoilerButton';
 function Spoiler( { isRevealed, setState, className } ) {
 	return (
 		<div
-			className={ className }
+			className={ `${className}` }
 		>
 			<SpoilerButton
 				stem={ className }
@@ -17,10 +17,9 @@ function Spoiler( { isRevealed, setState, className } ) {
 				isRevealed={ isRevealed }
 			/>
 			<div
-				className={ `${className}__wrapper` }
+				className={ `${className}__wrapper ${ isRevealed ? 'is-revealed' : '' }` }
 				aria-live='polite'
-				aria-hidden={ false }
-				hidden={ false }
+				aria-hidden={ isRevealed ? false : true }
 			>
 				<InnerBlocks
 					allowedBlocks={ true }
