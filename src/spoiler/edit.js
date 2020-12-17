@@ -17,7 +17,7 @@ function Spoiler( { isRevealed, setState, className } ) {
 				isRevealed={ isRevealed }
 			/>
 			<div
-				className={ `${className}__wrapper ${ isRevealed ? 'is-revealed' : '' }` }
+				className={ `${className}__wrapper` }
 				aria-live='polite'
 				aria-hidden={ isRevealed ? false : true }
 			>

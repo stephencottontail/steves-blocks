@@ -9,10 +9,8 @@
 			el.classList.toggle( 'is-revealed' );
 			if ( el.classList.contains( 'is-revealed' ) ) {
 				content.setAttribute( 'aria-hidden', false );
-				content.classList.add( 'is-revealed' );
 			} else {
 				content.setAttribute( 'aria-hidden', true );
-				content.classList.remove( 'is-revealed' );
 			}
 		} );
 	} );

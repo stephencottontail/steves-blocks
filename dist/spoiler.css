@@ -40,10 +40,6 @@
     margin-left: 4px;
     text-transform: uppercase;
     letter-spacing: 2px; }
-  .wp-block-scbc-spoiler__wrapper {
-    display: none; }
-    .wp-block-scbc-spoiler__wrapper.is-revealed {
-      display: block; }
 
 .wp-block-scbc-spoiler {
   position: relative; }

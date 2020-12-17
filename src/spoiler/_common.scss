@@ -34,12 +34,4 @@
 		text-transform: uppercase;
 		letter-spacing: 2px;
 	}
-
-	&__wrapper {
-		display: none;
-
-		&.is-revealed {
-			display: block;
-		}
-	}
 }
