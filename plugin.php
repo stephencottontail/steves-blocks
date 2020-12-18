@@ -34,6 +34,13 @@
 		}
 	} );
 
+	add_action( 'init', function() {
+		$placeholder_url = plugins_url( 'img/snowy-tree.jpg', __FILE__ );
+
+		// this is in the global scope so we should try to avoid a collision
+		wp_add_inline_script( 'scbc-spoiler-editor-script', "var scbcPlaceholderImage = '${placeholder_url}';", 'before' );
+	} );
+
 	add_action( 'wp_enqueue_scripts', function() {
 		wp_enqueue_script( 'scbc-spoiler-functionality', plugins_url( '/utils/scbc-spoiler-functionality.js', __FILE__ ), null, null, true );
 	} );

@@ -2,6 +2,12 @@ import { withState } from '@wordpress/compose';
 import { InnerBlocks } from '@wordpress/block-editor';
 import SpoilerButton from './SpoilerButton';
 
+// `scbcPlaceholderImage` comes from PHP
+const TEMPLATE = [ [ 'core/columns', {}, [
+	[ 'core/paragraph', { content: 'You can hide anything with this block...' } ],
+	[ 'core/image', { url: scbcPlaceholderImage, caption: 'Like this picture of a tree.' } ]
+] ] ];
+
 function Spoiler( { isRevealed, setState, className } ) {
 	return (
 		<div
@@ -23,7 +29,7 @@ function Spoiler( { isRevealed, setState, className } ) {
 			>
 				<InnerBlocks
 					allowedBlocks={ true }
-					template={ [ [ 'core/paragraph', { placeholder: 'You can hide anything with this block.' } ] ] }
+					template={ TEMPLATE }
 				/>
 			</div>
 		</div>
