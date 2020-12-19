@@ -7,6 +7,20 @@ registerBlockType( 'scbc/countup', {
 	description: 'Draw attention to a number by counting up to it',
 	category: 'scbc',
 	icon: 'arrow-up-alt',
+	attributes: {
+		beforeText: {
+			type: 'string',
+			default: ''
+		},
+		targetNumber: {
+			type: 'number',
+			default: ''
+		},
+		afterText: {
+			type: 'string',
+			default: ''
+		}
+	},
 	edit,
 	save
 } );

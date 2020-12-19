@@ -2,5 +2,14 @@
 
 .wp-block-scbc-countup {
 	@extend %shared;
+
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+
+	&__number {
+		font-weight: bold;
+		font-size: 2em;
+	}
 }
 

@@ -29,5 +29,5 @@ $text-color: map-get( $colors, gray-500 );
 	box-sizing: border-box;
 	background-color: $background-color;
 	color: $text-color;
-	padding: ( $base-spacing / 2 );
+	padding: ( $base-spacing * 2 ) ( $base-spacing / 2 );
 }

@@ -2,10 +2,18 @@
   box-sizing: border-box;
   background-color: #F2F8FA;
   color: #171919;
-  padding: 12px; }
+  padding: 48px 12px; }
 
 .wp-block-scbc-countup {
   box-sizing: border-box;
   background-color: #F2F8FA;
   color: #171919;
-  padding: 12px; }
+  padding: 48px 12px; }
+
+.wp-block-scbc-countup {
+  display: flex;
+  flex-direction: column;
+  text-align: center; }
+  .wp-block-scbc-countup__number {
+    font-weight: bold;
+    font-size: 2em; }
