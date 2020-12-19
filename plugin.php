@@ -43,6 +43,11 @@
 
 	add_action( 'wp_enqueue_scripts', function() {
 		wp_enqueue_script( 'scbc-spoiler-functionality', plugins_url( '/utils/scbc-spoiler-functionality.js', __FILE__ ), null, null, true );
+
+		if ( is_singular() && has_block( 'scbc/countup' ) ) {
+			wp_enqueue_script( 'scbc-waypoints', plugins_url( '/vendor/waypoints/waypoints.min.js', __FILE__ ), null, null, true );
+			wp_enqueue_script( 'scbc-countup-functionality', plugins_url( '/utils/scbc-countup-functionality.js', __FIlE__ ), array( 'scbc-waypoints' ), null, true );
+		}
 	} );
 
 	add_filter( 'block_categories', function( $categories, $post ) {
