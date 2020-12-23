@@ -1,11 +1,48 @@
-import { useRef } from '@wordpress/element';
-import { Panel, PanelBody, PanelRow, TextControl } from '@wordpress/components';
+import { forwardRef, useEffect, useState, useRef } from '@wordpress/element';
+import { PanelBody, TextControl } from '@wordpress/components';
 import { InspectorControls, RichText } from '@wordpress/block-editor';
 import { Waypoint } from 'react-waypoint';
 
+const animationDuration = 2000;
+const frameDuration = 1000 / 60;
+const totalFrames = Math.round( animationDuration / frameDuration );
+
+const CountUpAnimation = forwardRef( function( props, ref ) {
+	const { className, targetNumber } = props;
+	const [ count, setCount ] = useState( 0 );
+
+	useEffect( () => {
+		if ( ! ref.current === true ) {
+			return;
+		}
+	
+		let frame = 0;
+
+		const counter = setInterval( () => {
+			frame++;
+
+			const progress = frame / totalFrames;
+			setCount( targetNumber * progress );
+
+			if ( frame === totalFrames ) {
+				clearInterval( counter );
+			}
+		}, frameDuration );
+	}, [count] );
+
+	return (
+		<span
+			className={ `${className}__number` }
+			ref={ ref }
+		>
+			{ Math.round( count ) }
+		</span>
+	);
+} );
+
 export default function Edit( { attributes, setAttributes, className } ) {
 	const { beforeText, targetNumber, afterText } = attributes;
-	const el = useRef();
+	const el = useRef( false );
 
 	return (
 		<>
@@ -27,14 +64,11 @@ export default function Edit( { attributes, setAttributes, className } ) {
 			</InspectorControls>
 			<Waypoint
 				onEnter={ () => {
-					const number = el.current.querySelector( `.${className}__number` );
-
-					console.log( number.innerHTML );
+					el.current = true;
 				} }
 			>
 				<div
 					className={ className }
-					ref={ el }
 				>
 					<div
 						className={ `${className}__before` }
@@ -49,11 +83,11 @@ export default function Edit( { attributes, setAttributes, className } ) {
 							} }
 						/>
 					</div>
-					<span
-						className={ `${className}__number` }
-					>
-						{ targetNumber || '100' }
-					</span>
+					<CountUpAnimation
+						targetNumber={ targetNumber || 100 }
+						className={ className }
+						ref={ el }
+					/>
 					<div
 						className={ `${className}__after` }
 					>
