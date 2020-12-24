@@ -1,44 +1,44 @@
-import { forwardRef, useCallback, useState, useEffect } from '@wordpress/element';
+import { useEffect } from '@wordpress/element';
+import { withState } from '@wordpress/compose';
+import { Waypoint } from 'react-waypoint';
 
-const animationDuration = 2000;
-const frameDuration = 1000 / 60;
-const totalFrames = Math.round( animationDuration / frameDuration );
-
-function CountUpAnimation( props, ref ) {
-	const { className, targetNumber } = props;
-	const [ count, setCount ] = useState( targetNumber );
+function CountUpAnimation( { targetNumber, className, setState, count, shouldCount } ) {
+	const animationDuration = 2000;
+	const frameDuration = 1000 / 60;
+	const totalFrames = Math.round( animationDuration / frameDuration );
+	const easeOutQuad = t => t * ( 2 - t );
 
 	useEffect( () => {
-		if ( ! ref.current ) {
-			return;
-		}
-
-		console.log( 'we got here' );
 		let frame = 0;
 
 		const counter = setInterval( () => {
 			frame++;
 
-			const progress = frame / totalFrames;
-			setCount( targetNumber * progress );
+			const progress = easeOutQuad( frame / totalFrames );
+			setState( { count: targetNumber * progress } );
 
 			if ( frame === totalFrames ) {
 				clearInterval( counter );
 			}
 		}, frameDuration );
-	}, [] );
+	}, [ shouldCount ] );
 
 	return (
-		<span
-			className={ `${className}__number` }
-			ref={ el }
-			onClick={ () => {
-				setCount( 99 );
+		<Waypoint
+			onEnter={ () => {
+				setState( { shouldCount: true } );
 			} }
 		>
-			{ Math.round( count ) }
-		</span>
+			<span
+				className={ `${className}__number` }
+			>
+				{ Math.round( count ) }
+			</span>
+		</Waypoint>
 	);
-}
+};
 
-export default forwardRef( CountUpAnimation );
+export default withState( {
+	count: 0,
+	shouldCount: false
+} )( CountUpAnimation );
