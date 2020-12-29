@@ -2,7 +2,8 @@ import { useEffect } from '@wordpress/element';
 import { withState } from '@wordpress/compose';
 import { Waypoint } from 'react-waypoint';
 
-function CountUpAnimation( { targetNumber, className, setState, count, shouldCount } ) {
+function CountUpAnimation( { setState, count, shouldCount, ...rest } ) {
+	const { targetNumber, className, prefix, suffix } = rest;
 	const animationDuration = 2000;
 	const frameDuration = 1000 / 60;
 	const totalFrames = Math.round( animationDuration / frameDuration );
@@ -32,7 +33,7 @@ function CountUpAnimation( { targetNumber, className, setState, count, shouldCou
 			<span
 				className={ `${className}__number` }
 			>
-				{ Math.round( count ) }
+				{ `${prefix}${Math.round( count )}${suffix || '%' }` }
 			</span>
 		</Waypoint>
 	);

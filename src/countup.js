@@ -19,6 +19,14 @@ registerBlockType( 'scbc/countup', {
 		afterText: {
 			type: 'string',
 			default: ''
+		},
+		prefix: {
+			type: 'string',
+			default: ''
+		},
+		suffix: {
+			type: 'string',
+			default: ''
 		}
 	},
 	edit,
