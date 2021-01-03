@@ -1,8 +1,11 @@
 import { RichText } from '@wordpress/block-editor';
 
 export default function Save( { attributes } ) {
-	const { beforeText, targetNumber, afterText } = attributes;
+	let actualNumber;
+	const { beforeText, targetNumber, afterText, prefix, suffix } = attributes;
 	const className = 'wp-block-scbc-countup';
+
+	actualNumber = <span>{ targetNumber || '100' }</span>;
 
 	return (
 		<div>
@@ -14,7 +17,7 @@ export default function Save( { attributes } ) {
 			<span
 				className={ `${className}__number` }
 			>
-				{ targetNumber || '100' }
+				{ prefix }{ actualNumber }{ suffix }
 			</span>
 			<RichText.Content
 				tagName='p'
