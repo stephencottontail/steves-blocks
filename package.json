@@ -35,5 +35,10 @@
     "gulp-sass": "^4.1.0",
     "webpack": "^4.44.2",
     "webpack-cli": "^4.2.0"
+  },
+  "devDependencies": {
+    "@wordpress/eslint-plugin": "^8.0.2",
+    "eslint": "^7.21.0",
+    "eslint-plugin-react-hooks": "^4.2.0"
   }
 }
