@@ -1,16 +1,14 @@
-import apiFetch from '@wordpress/api-fetch';
-import { useRef, forwardRef, useState, useEffect } from '@wordpress/element';
-import { addQueryArgs } from '@wordpress/url';
+import { useRef, useState } from '@wordpress/element';
 import ThemeSuggestionTextInput from './text-input';
 
 export default function Edit( { className } ) {
-	const [query, setQuery] = useState( '' );
-	const [themesLoaded, setThemesLoaded] = useState( false );
-	const [selectedTheme, setSelectedTheme] = useState( false );
-	const [isSuggestionsVisible, setIsSuggestionsVisible] = useState( false );
+	const [ query, setQuery ] = useState( '' );
+	const [ themesLoaded, setThemesLoaded ] = useState( false );
+	const [ selectedTheme, setSelectedTheme ] = useState( false );
+	const [ isSuggestionsVisible, setIsSuggestionsVisible ] = useState( false );
 	const textRef = useRef( null );
 
-	const ThemeSuggestion = props => {
+	const ThemeSuggestion = () => {
 		return (
 			<div>
 				<ThemeSuggestionTextInput

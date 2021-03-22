@@ -27,33 +27,28 @@ const ThemeSuggestionTextInput = ( props, ref ) => {
 		
 		apiFetch( {
 			url: addQueryArgs( 'https://api.wordpress.org/themes/info/1.1/', {
-				'action': 'query_themes',
+				action: 'query_themes',
 				'request[search]': value
 			} )
 		} )
-			.then( res => res.json() )
-			.then( data => {
+			.then( ( res ) => res.json() )
+			.then( ( data ) => {
 				console.log( 'came from text-input', data );
-
-				setThemesLoaded( { themesLoaded: true } );
-			} )
-			.catch( error => {
-				console.log( 'it did not work', error );
 			} );
-	}, [value] );
+	}, [ value ] );
 
 	useEffect( () => {
 		ref.current.focus();
-	}, [ref] );
+	}, [ ref ] );
 
-	const onInputChange = e => {
+	const onInputChange = ( e ) => {
 		onChange( e.target.value );
 	};
 
 	return (
 		<input
 			ref={ ref }
-			type='text'
+			type="text"
 			value={ value }
 			placeholder={ '' }
 			onChange={ onInputChange }
