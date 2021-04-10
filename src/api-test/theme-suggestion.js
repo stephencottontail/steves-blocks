@@ -1,9 +1,10 @@
 import apiFetch from '@wordpress/api-fetch';
-import { forwardRef, useEffect } from '@wordpress/element';
+import { forwardRef, useState, useEffect } from '@wordpress/element';
 import { addQueryArgs } from '@wordpress/url';
 
-const ThemeSuggestionTextInput = ( props, ref ) => {
-	const { value, onChange } = props;
+const ThemeSuggestion = ( props, ref ) => {
+	const { value, onChange, onClick } = props;
+	const [ themes, setThemes ] = useState( {} );
 
 	useEffect( () => {
 		/**
@@ -33,27 +34,34 @@ const ThemeSuggestionTextInput = ( props, ref ) => {
 		} )
 			.then( ( res ) => res.json() )
 			.then( ( data ) => {
-				console.log( 'came from text-input', data );
+				setThemes( data );
 			} );
 	}, [ value ] );
 
 	useEffect( () => {
 		ref.current.focus();
-	}, [ ref ] );
+	}, [ref] );
 
 	const onInputChange = ( e ) => {
 		onChange( e.target.value );
 	};
 
 	return (
-		<input
-			ref={ ref }
-			type="text"
-			value={ value }
-			placeholder={ '' }
-			onChange={ onInputChange }
-		/>
+		<div>
+			<input
+				ref={ ref }
+				type="text"
+				value={ value }
+				placeholder={ '' }
+				onChange={ onInputChange }
+			/>
+			{ themes?.map && themes.map( ( theme, i ) => {
+				console.log( theme );
+
+				return <button key={ i }>{ theme.name }</button>
+			} ) }
+		</div>
 	);
 };
 
-export default forwardRef( ThemeSuggestionTextInput );
+export default forwardRef( ThemeSuggestion );

@@ -1,5 +1,5 @@
 import { useRef, useState } from '@wordpress/element';
-import ThemeSuggestionTextInput from './text-input';
+import ThemeSuggestion from './theme-suggestion';
 
 export default function Edit( { className } ) {
 	const [ query, setQuery ] = useState( '' );
@@ -8,23 +8,16 @@ export default function Edit( { className } ) {
 	const [ isSuggestionsVisible, setIsSuggestionsVisible ] = useState( false );
 	const textRef = useRef( null );
 
-	const ThemeSuggestion = () => {
-		return (
-			<div>
-				<ThemeSuggestionTextInput
-					value={ query }
-					onChange={ setQuery }
-					ref={ textRef }
-				/>
-			</div>
-		);
-	}
-
 	return (
 		<div
 			className={ className }
 		>
-			<ThemeSuggestion />
+			<ThemeSuggestion
+				value={ query }
+				onChange={ setQuery }
+				onClick={ setSelectedTheme }
+				ref={ textRef }
+			/>
 			{ themesLoaded ? <p>Yes</p> : <p>No</p> }
 			{ query && <p>{ query.toString() }</p> }
 		</div>
